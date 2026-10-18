@@ -29,3 +29,7 @@ Se reinicia únicamente cuando hay una falla en la ejecución del código que se
 ```
 docker run -d --name <nombre contenedor> --restart on-failure <nombre imagen>
 ```
+
+
+<img width="1042" height="377" alt="image" src="https://github.com/user-attachments/assets/eeb17af6-b1c9-439b-bc1a-64545baedf9b" />
+
