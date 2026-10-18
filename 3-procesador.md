@@ -11,7 +11,7 @@ Asignar núcleos de CPU específicos:
 
 **¿Como saber el numero de procesadores virtuales que tiene una máquina?**
 ## COMPLETAR
-
+Para saberlo, se puede ejecutar el comando  echo $env:NUMBER_OF_PROCESSORS en Windows PowerShell, en mi caso son 12 
 ## Ejemplos
 _Puedes copiar y ejecutar directamente cada uno de los comandos_
 
