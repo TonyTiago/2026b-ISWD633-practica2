@@ -58,13 +58,19 @@ No olvides verificar en qué directorio se encuentra el archivo Dockerfile
 
 **¿Cuántos pasos se han ejecutado?**
 # RESPONDER 
-
+Los 5 pasos que se ejecutaron fueron los siguientes:
+CACHED [1/5] FROM 
+       [2/5] RUN yum -y update
+       [3/5] RUN yum -y update                                                                                                               [4/5] RUN yum -y install httpd                                                                                                        [5/5] COPY ./web /var/www/html
 ### Inspeccionar la imagen creada
 # COMPLETAR CON UNA CAPTURA
+<img width="1057" height="393" alt="image" src="https://github.com/user-attachments/assets/84e0c8a0-ca20-428b-9094-ded83f8b14c0" />
+<img width="1052" height="397" alt="image" src="https://github.com/user-attachments/assets/0f9c23f0-e147-4754-b1a7-e737a37faff6" />
+
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
-
+Se ejecutaron de nuevo los 5 pasos, pero los pasos [1/5] a [4/5] son instantáneos (CACHED) porque no han cambiado y solo el paso [5/5] (el COPY ./web /var/www/html) se ejecutará de nuevo porque se modifico el archivo index.html, esto demuestra el mecanismo de caché de Docker.
 ## Mecanismo de caché
 Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso de construcción y evitar la repetición de pasos que no han cambiado. Cada instrucción en un Dockerfile crea una capa en la imagen final. Docker intenta reutilizar las capas de una construcción anterior si no han cambiado, lo que reduce significativamente el tiempo de construcción.
 
@@ -80,10 +86,11 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### ¿Con que puerto host se está realizando el mapeo?
 # COMPLETAR CON LA RESPUESTA
-
+80/tcp -> 0.0.0.0:32768 en este caso el puerto es 32768
 **¿Qué es una imagen huérfana?**
 # COMPLETAR CON LA RESPUESTA
-
+Una imagen huérfana es una imagen que no tiene etiqueta (<none>:<none>) y que no está siendo utilizada por ningún contenedor. 
+Ocurre cuando reconstruyes una imagen con el mismo nombre y tag, dejando la versión anterior sin referencia.
 ### Identificar imágenes huérfanas
 ```
 docker images -f "dangling=true"
